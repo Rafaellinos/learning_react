@@ -38,7 +38,7 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 - The entrypoint of every react app is the file index.js
 - react and react-dom the main import libs (React engine, the core)
 - index.json <React.StrictMode></React.StrictMode> throw warnings like deprecated
-- public folder, base fila, has the html root <div id="root"></div>
+- public folder, base file, has the html root <div id="root"></div>
 - React uses the root div to render things
 - babel converts to old js for all the browsers
 - webpack -> makes the code efficient, creates chunks of the js, for example only sends the js related to the front page when the used access it, modulate the js
@@ -81,7 +81,56 @@ Declare what the app looks like and REACT take care of the manipulation of the D
         "eject": "react-scripts eject"
     }
     ```
-    
 
+
+# How react works
+- App.js contain the entire application
+- function App() is an component
+- Component is a pice of code (js class ou function) that accept inputs and properties(propos) and returns a React element (section of UI)
+- When React Render:
+    * The moment the user can interact, is when the rendering process has finished.
+    * JSX is a sintax extension for JS. Looks like HTML but it's not.
+    * JSX ia a sugar way to tell the JS what we want to render.
+
+
+# Classes vs Hooks: [PENDING]
+- Hooks: 
+- Classes: 
+Function components:
+    * function App()
+    * returns the JSX
+
+Class components:
+    * The same thing, how to render on the UI
+    * instead of function App() -> class App extends Component
+    * Component class must be imported from import { Component } from 'react';
+    * overwrite the render method to return the JSX.
+
+
+# Components State
+
+- localstate: State that only the component can read and write and has access to it
+- To use state on class component, use:
+    ```javascript
+        constructor() {
+            super();
+            this.state = {
+            name: 'Rafael'
+            }
+        }
+    ```
+- To access the state, use this.state.name on the JSX
+- It's possible to change the name, when the state change it's re-render
+- onClick is one event to use in button
+- to update state, use setState
+- React changes the state when the objeto is a completely new objeto,
+not changed, by using setState
+- setState updates the object and triggers the rerender, it's a shallow merge
+- When the page is reloaded, the state is reseted.
+- It's possible to pass two funcions this.setState(() => {}, () => {}), the first one is the state and the last one the callback func.
+
+# Javascript
+
+- To deepcopy a objeto, use Object.assign({}, obj1), where obj1 é the template
 
 
