@@ -133,4 +133,8 @@ not changed, by using setState
 
 - To deepcopy a objeto, use Object.assign({}, obj1), where obj1 é the template
 
-
+# SPA - React
+- NonSPA - multiple request for each JS/CSS/HTML file.
+    * Ex: change the path for /info and the page will ask the server for the files for that page.
+    * Each time the browser requests the server it took time to get the response wich mean lower performance
+- 
