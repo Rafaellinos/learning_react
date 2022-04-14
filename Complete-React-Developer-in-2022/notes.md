@@ -137,4 +137,8 @@ not changed, by using setState
 - NonSPA - multiple request for each JS/CSS/HTML file.
     * Ex: change the path for /info and the page will ask the server for the files for that page.
     * Each time the browser requests the server it took time to get the response wich mean lower performance
-- 
+
+
+# lifecicle of app
+- componentDidMount => runs the code inside the function whenever the component mounts
+- mounting is the first time when the lifecicli started

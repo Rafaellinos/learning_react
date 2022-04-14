@@ -10,21 +10,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: [
-        {
-          id: 1,
-          name: 'Linda'
-        },
-        {
-          id: 2,
-          name: 'Frank'
-        },
-        {
-          id: 3,
-          name: 'Jack'
-        }
-      ]
+      monsters: []
     }
+  }
+
+  componentDidMount() {
+    //runs the code inside the function whenever the component mounts
+    // only once in the lifecicle
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(res => {
+        this.setState(() => {return {monsters: res}}, ()=>console.log(this.state))
+      })
   }
 
   render() {
