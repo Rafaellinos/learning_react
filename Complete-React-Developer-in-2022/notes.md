@@ -142,3 +142,5 @@ not changed, by using setState
 # lifecicle of app
 - componentDidMount => runs the code inside the function whenever the component mounts
 - mounting is the first time when the lifecicli started
+WARNING -> Becarefull with componentDidMount, when u update the state, the render will be called again
+- construtor -> render -> componentDidMount -> (if state gets update -> re-render)
