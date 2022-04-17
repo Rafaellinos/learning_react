@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       monsters: [],
-      monstersStorage: []
+      searchField: ''
     }
   }
 
@@ -23,32 +23,30 @@ class App extends Component {
     this.fetchUsersDate();
   }
 
-  fetchUsersDate() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(res => {
-        this.setState(() => {return {monstersStorage: res, monsters: res}}, ()=>console.log("DidMount", this.state))
-      })
+  async fetchUsersDate() {
+    let res = await fetch('https://jsonplaceholder.typicode.com/users');
+    res = await res.json();
+    this.setState(() => {return {monsters: res}}, ()=>console.log("DidMount", this.state));
+  }
+
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLowerCase();
+    this.setState({searchField}); // trigger re-render
   }
 
   render() {
+    // when state gets update, re-render
+    console.log("renderizando");
+
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredMonsters = monsters.filter(m => String(m.name).toLowerCase().includes(searchField));
     return (
       <div className="App">
-        <input className='search-box' type='search' placeholder='searh monsters' onChange={
-          (event) => {
-            const eventLocal = event.target.value.toLowerCase();
-            if (eventLocal === '' || eventLocal === undefined || eventLocal.length === 0) {
-              this.setState({monsters: this.state.monstersStorage})
-            } else {
-              let filteredMonster = this.state.monstersStorage.filter(m => String(m.name).toLowerCase().includes(eventLocal));
-              console.log("filtrado", filteredMonster);
-              this.setState({monsters: filteredMonster});
-            }
-          }
-        }
-        />
+        <input className='search-box' type='search' placeholder='searh monsters' onChange={onSearchChange}/>
         {
-        this.state.monsters.map(m => <h1 key={m.id}>{m.name}</h1>)
+        filteredMonsters.map(m => <h1 key={m.id}>{m.name}</h1>)
         }
       </div>
     );
