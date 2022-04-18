@@ -108,7 +108,17 @@ Class components:
 
 
 # Components State
-
+- Component is when u extends Component, meant to reuse some parts of the code
+- A component cannot have more than 1 html tag at the same level, each component represents 1 root "html"
+    * EX:
+    ```javascript
+        render() {
+        return <div>
+            Hello i'm the card list component
+        </div>
+        <div>WRONG, wont work<div/>
+    }
+    ```
 - localstate: State that only the component can read and write and has access to it
 - To use state on class component, use:
     ```javascript
@@ -144,3 +154,7 @@ not changed, by using setState
 - mounting is the first time when the lifecicli started
 WARNING -> Becarefull with componentDidMount, when u update the state, the render will be called again
 - construtor -> render -> componentDidMount -> (if state gets update -> re-render)
+
+# props
+- It's basically objects that can be passed through components. Ex: <ComponentXY anyPropsName={object}>
+- All propos will be inside this.props

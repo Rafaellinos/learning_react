@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 import logo from './logo.svg';
 import './App.css';
+import CardListComponent from './components/cards-list/cards-list.component';
 
 
 class App extends Component {
@@ -38,58 +39,18 @@ class App extends Component {
     // when state gets update, re-render
     console.log("renderizando");
 
-    const { monsters, searchField } = this.state;
+    const { monsters, searchField } = this.state; // more readble
     const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter(m => String(m.name).toLowerCase().includes(searchField));
     return (
       <div className="App">
         <input className='search-box' type='search' placeholder='searh monsters' onChange={onSearchChange}/>
-        {
-        filteredMonsters.map(m => <h1 key={m.id}>{m.name}</h1>)
-        }
+        <CardListComponent monsters={filteredMonsters}/>
       </div>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <header className="App-header">
-  //         <img src={logo} className="App-logo" alt="logo" />
-  //         <p>
-  //           Hi {this.state.name}
-  //         </p>
-  //         <button onClick={
-  //           () => {this.setState(() => {
-  //             return {name: "Joao"}
-  //           }, () => {
-  //             //will be executed when the funcion is finished
-  //             // async
-  //             console.log(this.state);
-  //           })}
-            
-  //           }>Change name</button>
-  //       </header>
-  //     </div>
-  //   );
-  // }
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Hi Rafael
-//         </p>
-//         <button>
-//           Change name
-//         </button>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
