@@ -1,12 +1,12 @@
 born in 2013
 
-bofore react: js / html / css | jquery
+before react: js / html / css | jquery
 
 The birth of SPA - Single Page Application
 Ajax
 
 2010 - AngularJS - Google
- Allow organize folder - MVC
+ Allow organizing folder - MVC
 
 2013 - React Facebook
 
@@ -15,7 +15,7 @@ Ajax
 Imperative is interacting directly with the DOM.
 Ex: If the user login, change the icon on the page.
 Problem: Difficult to see the relation between the events, many things happening at the same time on the page, and one event triggers another.
-Also, manipulating a DOM is a heavy operation, repainting the page and recalculating the order of elements (DOM is actually a tree structure)
+Also, manipulating a DOM is a heavy operation, repainting the page and recalculating the order of elements (DOM is a tree structure)
 
 Declarative approach
 Declare what the app looks like and REACT take care of the manipulation of the DOM.
@@ -25,10 +25,10 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 - We don't manipulate the DOM directly.
 - Build like Lego blocks. Small components
 - Components containing components
-- Components examples: Bootstrap react, material design etc (Share components)
+- Components examples: Bootstrap react, material design, etc (Share components)
 - Creates a virtual DOM (State, JSX, Components)
 - The states propagate thought the children's components
-- AngularJS is a framework, that has everything. React only works with the view, more like a ui library than a framework.
+- AngularJS is a framework, that has everything. React only works with the view, more like a UI library than a framework.
 
 
 ###########################
@@ -41,21 +41,18 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 - public folder, base file, has the html root <div id="root"></div>
 - React uses the root div to render things
 - babel converts to old js for all the browsers
-- webpack -> makes the code efficient, creates chunks of the js, for example only sends the js related to the front page when the used access it, modulate the js
-- react script build -> yarn build -> makes on file with all necessariry code, optmize and mimified
+- webpack -> make the code efficient, creates chunks of the js, for example only sends the js related to the front page when the user access it, modulates the js
+- react script build -> yarn build -> makes on file with all necessary code, optimize and minifier
 - react script test -> yarn test -> runs all tests, in App.js
 - react script eject -> yarn eject -> spits the file if babel and webpack and u can modify.
 - setupTests.json -> imports the testing libary
-- manifest.json -> A way for people use your app without the browser? (not sure), pregressevi app.
+- manifest.json -> A way for people to use your app without the browser? (not sure), progressive app.
 
 
 
 # What is npx
 - npm vs npx
 - included within npm 5.2 and later
-- Tools that is used 
-- When u install something using npm install package, it will be in the local folder
-- If u want to use the package in multiple projects, use -g
 
 
 # NPM commands:
@@ -64,10 +61,11 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 - npm list package (show location of the package LOCALLY, which means that doesn't work with the global package)
 - npm list -g package (show location of global package)
 - npm uninstall (-g if global) package (deletes package)
+- When u install something using npm install package, it will be in the local folder
+- If u want to use the package in multiple projects, use -g
 
 # Npx commands
 - npx cowsay (package) hello (install cowsay and use the command hello and deletes the package, DOES NOT INSTALL)
-- 
 
 # yarn commands
 - yarn start call the command start
@@ -84,12 +82,12 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 
 
 # How react works
-- App.js contain the entire application
+- App.js contains the entire application
 - function App() is an component
-- Component is a pice of code (js class ou function) that accept inputs and properties(propos) and returns a React element (section of UI)
+- Component is a piece of code (js class ou function) that accepts inputs and properties(propos) and returns a React element (section of UI)
 - When React Render:
     * The moment the user can interact, is when the rendering process has finished.
-    * JSX is a sintax extension for JS. Looks like HTML but it's not.
+    * JSX is a syntax extension for JS. Looks like HTML but it's not.
     * JSX ia a sugar way to tell the JS what we want to render.
 
 
@@ -105,10 +103,14 @@ Class components:
     * instead of function App() -> class App extends Component
     * Component class must be imported from import { Component } from 'react';
     * overwrite the render method to return the JSX.
+    * componentDidMount // whenever the component mounts
+    * constructor // use to incialize the state
+    * this.setState // use to update the state and re-render
+    * render() // return the html
 
 
 # Components State
-- Component is when u extends Component, meant to reuse some parts of the code
+- Extends the Component class from react, meant to reuse some parts of the code
 - A component cannot have more than 1 html tag at the same level, each component represents 1 root "html"
     * EX:
     ```javascript
@@ -131,13 +133,13 @@ Class components:
     ```
 - To access the state, use this.state.name on the JSX
 - It's possible to change the name, when the state change it's re-render
-- onClick is one event to use in button
+- onClick is one event to use in the button
 - to update state, use setState
-- React changes the state when the objeto is a completely new objeto,
+- React changes the state when the object turns into a new object,
 not changed, by using setState
 - setState updates the object and triggers the rerender, it's a shallow merge
-- When the page is reloaded, the state is reseted.
-- It's possible to pass two funcions this.setState(() => {}, () => {}), the first one is the state and the last one the callback func.
+- When the page is reloaded, the state is reset.
+- It's possible to pass two functions this.setState(() => {}, () => {}), the first one is the state and the last one the callback func.
 
 # Javascript
 
@@ -146,7 +148,7 @@ not changed, by using setState
 # SPA - React
 - NonSPA - multiple request for each JS/CSS/HTML file.
     * Ex: change the path for /info and the page will ask the server for the files for that page.
-    * Each time the browser requests the server it took time to get the response wich mean lower performance
+    * Each time the browser requests the server it took time to get the response which means lower performance
 
 
 # lifecicle of app
@@ -154,7 +156,8 @@ not changed, by using setState
 - mounting is the first time when the lifecicli started
 WARNING -> Becarefull with componentDidMount, when u update the state, the render will be called again
 - construtor -> render -> componentDidMount -> (if state gets update -> re-render)
+- Components rerenders when the setState is called and when the props is update.
 
 # props
-- It's basically objects that can be passed through components. Ex: <ComponentXY anyPropsName={object}>
+- It objects that can be passed through components. Ex: <ComponentXY anyPropsName={object}>
 - All propos will be inside this.props
