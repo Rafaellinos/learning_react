@@ -144,6 +144,7 @@ not changed, by using setState
 # Javascript
 
 - To deepcopy a objeto, use Object.assign({}, obj1), where obj1 é the template
+- const { nome }= {nome: 'rafael', idade: 32} it's possible to extract field from object
 
 # SPA - React
 - NonSPA - multiple request for each JS/CSS/HTML file.
@@ -161,3 +162,7 @@ WARNING -> Becarefull with componentDidMount, when u update the state, the rende
 # props
 - It objects that can be passed through components. Ex: <ComponentXY anyPropsName={object}>
 - All propos will be inside this.props
+- components will re-render when the props change, and any child component, nested component are rendered aswell
+
+# input types
+- type='search' creates the X button to delete the search

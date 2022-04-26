@@ -3,6 +3,7 @@ import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CardListComponent from './components/cards-list/cards-list.component';
+import SearchBoxComponent from './components/search-box/search-box.component';
 
 
 class App extends Component {
@@ -43,9 +44,10 @@ class App extends Component {
     const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter(m => String(m.name).toLowerCase().includes(searchField));
+    // filteredMonsters change and is passed as props, and the components is re-render
     return (
       <div className="App">
-        <input className='search-box' type='search' placeholder='searh monsters' onChange={onSearchChange}/>
+        <SearchBoxComponent onChangeHanlder={onSearchChange} placeholder='Search Monster' className='search-monster'/>
         <CardListComponent monsters={filteredMonsters}/>
       </div>
     );
