@@ -47,6 +47,7 @@ class App extends Component {
     // filteredMonsters change and is passed as props, and the components is re-render
     return (
       <div className="App">
+        <h1 className='app-title'>Monster Search!</h1>
         <SearchBoxComponent onChangeHanlder={onSearchChange} placeholder='Search Monster' className='monsters-search-box'/>
         <CardListComponent monsters={filteredMonsters}/>
       </div>
