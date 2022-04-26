@@ -166,3 +166,7 @@ WARNING -> Becarefull with componentDidMount, when u update the state, the rende
 
 # input types
 - type='search' creates the X button to delete the search
+
+# CSS
+- All css files applies to the entire website, even css in components
+- Developers only import css in components to be easier to understand the structure, because the project could have a lot of css and it's hard to find which class in css belongs to each components.
