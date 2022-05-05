@@ -92,11 +92,22 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 
 
 # Classes vs Hooks: [PENDING]
-- Hooks: 
+- Hooks
+    * useState -> const [ valueExtract, setValueFunc ] = useState(initialValue)
+    * useEffect -> useEffect(() => {}, []), when the value of dependencies (second argument) changes, runs the callback again (first argument), onMount will run useEffect and if anything changes on the array, re-run 
 - Classes: 
 Function components:
+    * uses hooks
     * function App()
     * returns the JSX
+    * functions receives props
+    * no need of constructor
+    * there is no lifecycle, just functions and side effects
+    * useState is the most basic hook at our disposal, gives the ability to encapsulate the local state in a functional component
+    * const [ valueToStore, setFuncion ] = useState(startValue); // doing unpacking, because useState return an array
+    * valueToStore = same thing as creating a new attribute in this.state object inside the constructor method, the value will be the one defined on useState function.
+    * startValue = the first state of the valueToStore
+    * WARNING -> When the state of the component changes, the entire function component gets re-rendered. That's why u should avoid declaring all functions that u need inside the components, all of then u get re-created.
 
 Class components:
     * The same thing, how to render on the UI
@@ -142,7 +153,6 @@ not changed, by using setState
 - It's possible to pass two functions this.setState(() => {}, () => {}), the first one is the state and the last one the callback func.
 
 # Javascript
-
 - To deepcopy a objeto, use Object.assign({}, obj1), where obj1 é the template
 - const { nome }= {nome: 'rafael', idade: 32} it's possible to extract field from object
 
@@ -152,9 +162,13 @@ not changed, by using setState
     * Each time the browser requests the server it took time to get the response which means lower performance
 
 
-# lifecicle of app
+# lifecycle of app
+- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+- Mounting -> constructur -> render -> update DOM -> mounting first time -> componentDidmount
+- Updating -> new props / setState/ foceUpdate -> render -> update dom -> componentDidUpdate
+- unmounting -> componentWillUnmount
 - componentDidMount => runs the code inside the function whenever the component mounts
-- mounting is the first time when the lifecicli started
+- Mounting is the first time when the lifecycle start
 WARNING -> Becarefull with componentDidMount, when u update the state, the render will be called again
 - construtor -> render -> componentDidMount -> (if state gets update -> re-render)
 - Components rerenders when the setState is called and when the props is update.
@@ -170,3 +184,26 @@ WARNING -> Becarefull with componentDidMount, when u update the state, the rende
 # CSS
 - All css files applies to the entire website, even css in components
 - Developers only import css in components to be easier to understand the structure, because the project could have a lot of css and it's hard to find which class in css belongs to each components.
+
+# Pure and Impure functions
+- Hooks are impure functions
+- Pure
+    * should aways return the same output when given the same input
+        ex:
+        ```javascript
+        const pureFunc = (a, b) = > {
+            return a + b;
+        }
+        pureFunc(2, 4); // aways the same output, no matter how many times u call the func
+        ```
+- Impure
+    * Need something outside of the func
+        ex: 
+        ```javascript
+        let c = 5
+        const pureFunc = (a, b) = > {
+            return a + b + c;
+        }
+        pureFunc(2, 4); // depends on c value which is outside of the funcion
+        ```
+    * side effects => Affect external objects, for example changing another variable outside of the scope of the function.
