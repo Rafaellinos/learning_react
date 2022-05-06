@@ -10,6 +10,8 @@ Ajax
 
 2013 - React Facebook
 
+React library -> Engine | React DOM render to the DOM
+
 # Declarative vs Imperative
 
 Imperative is interacting directly with the DOM.
@@ -213,3 +215,18 @@ WARNING -> Becarefull with componentDidMount, when u update the state, the rende
 * Gives warnings for deprecated methods, best practices, etc
 * StrictMode double render everything to catch any weird behaviors
 * May impact the performance
+
+
+# Virtual DOM vs DOM
+* REAL DOM
+    - Ex:
+    app monster
+           APP
+        /   |   \
+    h1 - cardlist - searchbox
+            |
+    card1 card2 card3...
+* Changes on the real dom is really computacional expensive
+* React dupliates the real dom by creating a virtual copy in JS (snapshot)
+* When it needs to change the dom, react makes a copy of the snapshot and start the modification on that copy
+* React make the change ONLY on the necessary components in the virtual copy dom, and then, compare the snapshot, make the changes and finally, apply then changes in the real dom
