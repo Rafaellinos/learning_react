@@ -207,3 +207,9 @@ WARNING -> Becarefull with componentDidMount, when u update the state, the rende
         pureFunc(2, 4); // depends on c value which is outside of the funcion
         ```
     * side effects => Affect external objects, for example changing another variable outside of the scope of the function.
+
+
+# React.StrictMode
+* Gives warnings for deprecated methods, best practices, etc
+* StrictMode double render everything to catch any weird behaviors
+* May impact the performance
