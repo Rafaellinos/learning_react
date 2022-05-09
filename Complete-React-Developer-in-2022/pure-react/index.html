@@ -13,17 +13,31 @@
     <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script>
+        // person component
+        const Person = props => {
+            const {name, ocuppation} = props;
+            return React.createElement('div', {}, [
+            React.createElement('h1', {key: `h1-${name}`}, name),
+            React.createElement('p', {key: `p-occupation-${ocuppation}`}, ocuppation)
+            ])
+        }
+        // main app component
         const App = () => {
             console.log("Rendering app...")
             return React.createElement('div', {}, [
                 // defining children. each child should have a key for optimization
-                React.createElement('h1', {class: 'title', key: 'this-is-a-key'}, [
-                "React is rendered"])
+                React.createElement('h1', {class: 'title', key: 'this-is-a-key'}, "React is rendered"),
+                React.createElement('div', {class: 'people', key: 'people-list'}, [
+                    React.createElement(Person, {name: "Rafael", ocuppation: 'developer', key: 'rafael-dev'}, null),
+                    React.createElement(Person, {name: "Yasmin", ocuppation: 'data analyst', key: 'yasmin-da'}, null),
+                    React.createElement(Person, {name: "Luiz", ocuppation: 'mechanical', key: 'luiz-mc'}, null)
+                ])
             ]);
         }
+        // index.js
         const container = document.getElementById('root');
         const root = ReactDOM.createRoot(container);
-        root.render(React.createElement(App));
+        root.render(App());
     </script>
 </body>
 </html>
