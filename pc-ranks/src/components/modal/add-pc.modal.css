@@ -1,0 +1,73 @@
+.add-pc-mocal-container {
+    border: solid 1px red;
+    background-color: #dad8d7;
+    height: 500px;
+    width: 500px;
+    position: fixed;
+    left: calc((50vw - 50%) * -1);
+    top: calc((50vh - 50%) * -1);
+    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+    border-radius: 2%;
+}
+
+.modal-backgroud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 5%;
+}
+
+.close-btn span:hover {
+    color: red;
+    font-size: larger;
+    transition: 0.2s;
+}
+
+/*.add-pc-action {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    margin-top: 0.5%;*/
+/*    margin-bottom: 1%;*/
+/*    padding: 0.5%;*/
+/*    clear: both;*/
+/*}*/
+
+.flex-outer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5em;
+    list-style: none;
+    margin: 1em;
+}
+
+.flex-outer input {
+    /*padding: 1em;*/
+    /*margin-bottom: 1em;*/
+}
+
+.flex-outer label {
+    margin: 1em;
+}
+
+.bottom-modal {
+    display: flex;
+    justify-content: center;
+
+}
+
+.add-pc-action {
+    position: absolute;
+    bottom: 0;
+    margin: 1em;
+}
