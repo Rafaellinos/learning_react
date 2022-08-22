@@ -35,6 +35,7 @@ export const SignUpFormComponent = () => {
             if (err.code === 'auth/email-already-in-use') {
                 alert("Email already in use!")
             }
+            alert(err.message)
             console.error(err);
         }
     }
@@ -81,7 +82,7 @@ export const SignUpFormComponent = () => {
                     type="password"
                     required
                     onChange={handleChange}
-                    name="displayName"
+                    name="confirmPassword"
                     value={confirmPassword}
                 />
                 <Button type="submit">Sign Up</Button>
