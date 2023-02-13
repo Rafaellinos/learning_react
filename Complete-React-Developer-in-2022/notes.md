@@ -85,7 +85,7 @@ Declare what the app looks like and REACT take care of the manipulation of the D
 
 # How react works
 - App.js contains the entire application
-- function App() is an component
+- function App() is a component
 - Component is a piece of code (js class ou function) that accepts inputs and properties(propos) and returns a React element (section of UI)
 - When React Render:
     * The moment the user can interact, is when the rendering process has finished.
