@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from "react-router-dom";
+import Home from './routes/home.component'
+import Header from "./routes/header.component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Yasmin & Rafael
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<Header/>}>
+                <Route index element={<Home/>}/>
+
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;
